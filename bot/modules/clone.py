@@ -45,10 +45,10 @@ def cloneNode(update, context):
         status_class = CloneStatus()
         gd = GoogleDriveHelper()
         sendCloneStatus(link, msg, status_class, update, context)
-        result = gd.clone(link, status_class)
+        result, buttons = gd.clone(link, status_class)
         deleteMessage(context.bot, msg)
         status_class.set_status(True)
-        sendMessage(result, context.bot, update)
+        sendMessage(result, context.bot, update, buttons=buttons)
         if is_gdtot:
             LOGGER.info(f"Deleting: {link}")
             gd.deleteFile(link)

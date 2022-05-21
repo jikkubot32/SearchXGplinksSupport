@@ -10,7 +10,7 @@ from urllib.parse import parse_qs
 from random import randrange
 from timeit import default_timer as timer
 
-from telegram import InlineKeyboardMarkup
+from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 from telegraph.exceptions import RetryAfterError
 
 from google.auth.transport.requests import Request
@@ -245,15 +245,21 @@ class GoogleDriveHelper:
                 except:
                     typ = 'File' 
                 msg += f'<b>📂 Movie Name : </b><code>{file.get("name")}</code>'
+
+                buttons = []
+
                 try:
                     msg += f'\n\n<b>💽 Size : {get_readable_file_size(int(meta.get("size", 0)))}</b>'
                     msg += f'\n<b>📦 Type : {typ}</b>'
-                    msg += f'\n\n<b><a href="{self.__G_DRIVE_BASE_DOWNLOAD_URL.format(file.get("id"))}">Drive Link</a></b>'
+                    # msg += f'\n\n<b><a href="{self.__G_DRIVE_BASE_DOWNLOAD_URL.format(file.get("id"))}">Drive Link</a></b>'
+                    url = self.__G_DRIVE_BASE_DOWNLOAD_URL.format(file.get("id"))
+                    buttons.append([InlineKeyboardButton("Drive Link", url=url)])
                 except TypeError:
                     pass
                 if DRIVE_INDEX_URL is not None:
                     url = requests.utils.requote_uri(f'{DRIVE_INDEX_URL}/{file.get("name")}')
-                    msg += f' <b>| <a href="{url}">Index Link</a></b>'
+                    # msg += f' <b>| <a href="{url}">Index Link</a></b>'
+                    buttons.append([InlineKeyboardButton("Index Link", url=url)])
         except Exception as err:
             if isinstance(err, RetryError):
                 LOGGER.info(f"Total attempts: {err.last_attempt.attempt_number}")
@@ -271,7 +277,7 @@ class GoogleDriveHelper:
             else:
                 msg = str(err)
             LOGGER.error(f"{msg}")
-        return msg
+        return msg, buttons
 
     def cloneFolder(self, name, local_path, folder_id, parent_id, status):
         LOGGER.info(f"Syncing: {local_path}")
