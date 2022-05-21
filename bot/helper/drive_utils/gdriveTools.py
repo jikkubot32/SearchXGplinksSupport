@@ -234,7 +234,7 @@ class GoogleDriveHelper:
                 msg += f'\n\n<b>💽 Size : </b>{get_readable_file_size(self.transferred_size)}'
                 msg += f"\n<b>📦 Type : Folder</b>"
                 msg += f"\n<b>🗂️ SubFolders : </b>{self.total_folders}"
-                msg += f"\n<b>📚 Files : </b>{self.total_files}"
+                msg += f"\n<b>📚 Files : </b>{self.total_files}\n\n<b>📬 Bot Created By : #WhitE_DeviL09</b>"
                 # msg += f'\n\n<b><a href="{self.__G_DRIVE_DIR_BASE_DOWNLOAD_URL.format(dir_id)}">Drive Link</a></b>'
                 
                 url = self.__G_DRIVE_DIR_BASE_DOWNLOAD_URL.format(dir_id)
@@ -253,7 +253,7 @@ class GoogleDriveHelper:
                 msg += f'<b>📂 Movie Name : </b><code>{file.get("name")}</code>'
                 try:
                     msg += f'\n\n<b>💽 Size : {get_readable_file_size(int(meta.get("size", 0)))}</b>'
-                    msg += f'\n<b>📦 Type : {typ}</b>\n\n📬 <b>Created By : WhitE_DevIL09</b>'
+                    msg += f'\n<b>📦 Type : {typ}</b>\n\n📬 <b>Bot Created By : #WhitE_DevIL09</b>'
                     # msg += f'\n\n<b><a href="{self.__G_DRIVE_BASE_DOWNLOAD_URL.format(file.get("id"))}">Drive Link</a></b>'
                     url = self.__G_DRIVE_BASE_DOWNLOAD_URL.format(file.get("id"))
                     buttons.append([InlineKeyboardButton("💾 Drive Link 💾", url=url)])
