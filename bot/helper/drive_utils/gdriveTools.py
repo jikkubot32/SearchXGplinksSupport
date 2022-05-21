@@ -237,7 +237,7 @@ class GoogleDriveHelper:
                 msg += f"\n<b>📚 Files : </b>{self.total_files}"
                 # msg += f'\n\n<b><a href="{self.__G_DRIVE_DIR_BASE_DOWNLOAD_URL.format(dir_id)}">Drive Link</a></b>'
                 
-                url = self.__G_DRIVE_BASE_DOWNLOAD_URL.format(file.get("id"))
+                url = self.__G_DRIVE_DIR_BASE_DOWNLOAD_URL.format(dir_id)
                 buttons.append([InlineKeyboardButton("Drive Link", url=url)])
                 
                 if DRIVE_INDEX_URL is not None:
