@@ -40,7 +40,7 @@ def cloneNode(update, context):
             LOGGER.error(e)
             return sendMessage(str(e), context.bot, update)
     if is_gdrive_link(link):
-        msg = sendMessage(f"<b>🔄 Cloning :</b> <code>{link}</code>", context.bot, update)
+        msg = sendMessage(f"<b>🔁 Cloning :</b> <code>{link}</code>", context.bot, update)
         LOGGER.info(f"Cloning: {link}")
         status_class = CloneStatus()
         gd = GoogleDriveHelper()
@@ -66,7 +66,7 @@ def sendCloneStatus(link, msg, status, update, context):
     while not status.done():
         time.sleep(3)
         try:
-            statmsg = f"<b>🔄 Cloning :</b> <a href='{status.source_folder_link}'>{status.source_folder_name}</a>\n━━━━━━━━━━━━━━" \
+            statmsg = f"<b>🔁 Cloning :</b> <a href='{status.source_folder_link}'>{status.source_folder_name}</a>\n━━━━━━━━━━━━" \
                       f"\n<b>🔷 Current file :</b> <code>{status.get_name()}</code>\n\n<b>🔶 Transferred</b> : <code>{status.get_size()}</code>"
             if not statmsg == old_statmsg:
                 editMessage(statmsg, msg)
