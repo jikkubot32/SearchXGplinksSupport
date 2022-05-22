@@ -234,7 +234,7 @@ class GoogleDriveHelper:
                 msg += f'\n\n<b>💽 Size : </b>{get_readable_file_size(self.transferred_size)}'
                 msg += f"\n<b>📦 Type : Folder</b>"
                 msg += f"\n<b>🗂️ SubFolders : </b>{self.total_folders}"
-                msg += f"\n<b>📚 Files : </b>{self.total_files}\n\n<b>📬 Bot Created By : #WhitE_DeviL09</b>"
+                msg += f"\n<b>📚 Files : </b>{self.total_files}\n\n<b>📬 Ownerd By : #WhitE_DeviL09</b>"
                 # msg += f'\n\n<b><a href="{self.__G_DRIVE_DIR_BASE_DOWNLOAD_URL.format(dir_id)}">Drive Link</a></b>'
                 
                 url = self.__G_DRIVE_DIR_BASE_DOWNLOAD_URL.format(dir_id)
@@ -253,7 +253,7 @@ class GoogleDriveHelper:
                 msg += f'<b>📂 Movie Name : </b><code>{file.get("name")}</code>'
                 try:
                     msg += f'\n\n<b>💽 Size : {get_readable_file_size(int(meta.get("size", 0)))}</b>'
-                    msg += f'\n<b>📦 Type : {typ}</b>\n\n📬 <b>Bot Created By : #WhitE_DevIL09</b>'
+                    msg += f'\n<b>📦 Type : {typ}</b>\n\n📬 <b>Ownerd By : #WhitE_DevIL09</b>'
                     # msg += f'\n\n<b><a href="{self.__G_DRIVE_BASE_DOWNLOAD_URL.format(file.get("id"))}">Drive Link</a></b>'
                     url = self.__G_DRIVE_BASE_DOWNLOAD_URL.format(file.get("id"))
                     buttons.append([InlineKeyboardButton("💾 Drive Link 💾", url=url)])
@@ -507,7 +507,7 @@ class GoogleDriveHelper:
 
             try:
                 self.path.append(
-                    telegraph[acc_no].create_page(title='🔄 DREAMCATCHER CLONE BOT 🔄',
+                    telegraph[acc_no].create_page(title='🔁 DREAMCATCHER CLONE BOT 🔁',
                                                   author_name='@WhitE_DeviL09',
                                                   author_url='https://t.me/white_devil09',
                                                   html_content=self.telegraph_content[i])['path'])
@@ -515,7 +515,7 @@ class GoogleDriveHelper:
                 LOGGER.info(f"Cooldown: {e.retry_after} seconds")
                 time.sleep(e.retry_after)
                 self.path.append(
-                    telegraph[acc_no].create_page(title='🔄 DREAMCATCHER CLONE BOT 🔄',
+                    telegraph[acc_no].create_page(title='🔁 DREAMCATCHER CLONE BOT 🔁',
                                                   author_name='@WhitE_DeviL09',
                                                   author_url='https://t.me/white_devil09',
                                                   html_content=self.telegraph_content[i])['path'])
@@ -525,7 +525,7 @@ class GoogleDriveHelper:
                 self.telegraph_content[i-1] += f'<b> | <a href="https://telegra.ph/{self.path[i]}">Next</a></b>'
                 try:
                     telegraph[(acc_no - 1) if i % page_per_acc == 0 else acc_no].edit_page(path = self.path[i-1],
-                                              title='🔄 DREAMCATCHER CLONE BOT 🔄',
+                                              title='🔁 DREAMCATCHER CLONE BOT 🔁',
                                               author_name='@WhitE_DeviL09',
                                               author_url='https://t.me/white_devil09',
                                               html_content=self.telegraph_content[i-1])
@@ -533,7 +533,7 @@ class GoogleDriveHelper:
                     LOGGER.info(f"Cooldown: {e.retry_after} seconds")
                     time.sleep(e.retry_after)
                     telegraph[(acc_no - 1) if i % page_per_acc == 0 else acc_no].edit_page(path = self.path[i-1],
-                                              title='🔄 DREAMCATCHER CLONE BOT 🔄',
+                                              title='🔁 DREAMCATCHER CLONE BOT 🔁',
                                               author_name='@WhitE_DeviL09',
                                               author_url='https://t.me/white_devil09',
                                               html_content=self.telegraph_content[i-1])
