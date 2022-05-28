@@ -107,7 +107,7 @@ def get_gp_link(url: str):
     client = cloudscraper.create_scraper(allow_brotli=False)
     p = urlparse(url)
     final_url = f'{p.scheme}://{p.netloc}/links/go'
-
+ 
     res = client.head(url)
     header_loc = res.headers['location']
     param = header_loc.split('postid=')[-1]
