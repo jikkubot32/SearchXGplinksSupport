@@ -57,6 +57,8 @@ For <i>file</i> results only:
 
 /{BotCommands.ShellCommand} [cmd]: Execute bash commands (Only owner)
 
+/{BotCommands.ScrapeCommand} [url]: ByPass Gplinks
+
 /{BotCommands.PingCommand}: Ping the bot
 
 /{BotCommands.LogCommand}: Get the log file (Only owner)
