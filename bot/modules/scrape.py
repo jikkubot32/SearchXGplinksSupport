@@ -23,7 +23,7 @@ def scrape_gp(update, context):
     if not link:      
        sendMessage("Something went wrong\nTry again later..", context.bot, update)
     else:
-       sendMessage(f"<b>⚙️ Here is Your Link 👇</b>\n\n<code>/clone@MMCloneBot {link}</code>\n\n<b>📬 Ownerd By : #WhitE_DeviL09</b>", context.bot, update)
+       sendMessage(f"<b><i>🔗 Yᴏᴜʀ Lɪɴᴋ Sᴄʀᴀᴘᴇᴅ 😜</i></b>\n\n<b>📤 Yᴏᴜʀ Lɪɴᴋ :</b> <code>/clone@MMCloneBot {link}</code>\n\n<b>📬 Oᴡɴᴇʀᴅ Bʏ : #WhitE_DeviL09</b>", context.bot, update)
 
 
 gplink_handler = CommandHandler("scrape", scrape_gp,
