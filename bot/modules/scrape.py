@@ -17,13 +17,13 @@ def scrape_gp(update, context):
        sendMessage('<b>Sorry, all I do is scrape GPLinks URLs :(</b>', context.bot, update)
        return
 
-    m = sendMessage('<b>🚀🚀 Please wait...\n\n📬 Ownerd By : @mhd_thanzeer</b>', context.bot, update)
+    m = sendMessage('<b>🚀🚀 Please wait...\n\n📬 Ownerd By : #WhitE_DeviL09</b>', context.bot, update)
     link = get_gp_link(query)
     deleteMessage(context.bot, m)
     if not link:      
        sendMessage("Something went wrong\nTry again later..", context.bot, update)
     else:
-       sendMessage(f"<b>Here is your direct link :</b>\n\n<code>/clone {link}</code>\n\n<b>📬 Ownerd By : @mhd_thanzeer</b>", context.bot, update)
+       sendMessage(f"<b>Here is your direct link :</b>\n\n<code>/clone {link}</code>\n\n<b>📬 Ownerd By : #WhitE_DeviL09</b>", context.bot, update)
 
 
 gplink_handler = CommandHandler("scrape", scrape_gp,
